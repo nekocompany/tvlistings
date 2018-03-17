@@ -3,6 +3,7 @@ class TvshowsController < ApplicationController
   
   def show
     @tvshow = Tvshow.find(params[:id])
+    # @tvshow_build = current_user.tvshows.build(tvshow_params)
   end
   
   def create

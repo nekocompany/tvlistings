@@ -3,23 +3,24 @@
       <div class="media-body">
         
         <div>
-          <p><%= @tvshow.showtitle %></p>
+          <p>番組名:<%= @tvshow.showtitle %></p>
         </div>
         
         <div>
           
-          <p><%= Time.at(@tvshow.show_length).utc.strftime("%H:%M:%S") %></p>
+          <p>番組の長さ:<%= Time.at(@tvshow.show_length).utc.strftime("%H:%M:%S") %></p>
         </div>
         
         <div>
-          <p><%= int_to_dow(@tvshow.dow) %></p>
+          <p>放映曜日<%= int_to_dow(@tvshow.dow) %></p>
         </div>
         
         <div>
           
           
-          <p><%= Time.at(@tvshow.show_start_time).utc.strftime("%H:%M")  %></p>
+          <p>番組開始時刻<%= Time.at(@tvshow.show_start_time).utc.strftime("%H:%M")  %></p>
         </div>
         
         
       </div>
+
