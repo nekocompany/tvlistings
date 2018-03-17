@@ -1,0 +1,2 @@
+class Tvlisting < ApplicationRecord
+end

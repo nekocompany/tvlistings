@@ -1,0 +1,25 @@
+<h1>番組名<%= @tvshow.showtitle %> の詳細ページ</h1>
+
+      <div class="media-body">
+        
+        <div>
+          <p><%= @tvshow.showtitle %></p>
+        </div>
+        
+        <div>
+          
+          <p><%= Time.at(@tvshow.show_length).utc.strftime("%H:%M:%S") %></p>
+        </div>
+        
+        <div>
+          <p><%= int_to_dow(@tvshow.dow) %></p>
+        </div>
+        
+        <div>
+          
+          
+          <p><%= Time.at(@tvshow.show_start_time).utc.strftime("%H:%M")  %></p>
+        </div>
+        
+        
+      </div>

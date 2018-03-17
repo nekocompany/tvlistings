@@ -1,0 +1,46 @@
+
+
+
+
+  
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <%= form_for(@tvshow) do |f| %>
+          <div class="form-group">
+            <%= f.label :name, '番組名' %>
+            <%= f.text_field :showtitle, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :show_length, '番組の長さ' %>
+            <%= f.number_field :show_length, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :dow, '曜日' %>
+            <%= f.number_field :dow, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :show_start_time, '番組の開始時間' %>
+            <%= f.text_field :show_start_time, class: 'form-control' %>
+          </div>
+
+          <div class="text-right">
+            <%= f.submit '登録する', class: 'btn btn-success' %>
+          </div>
+      <% end %>
+    </aside>
+    <div class="col-xs-8">
+      <%= render 'tvshows/tvshows', tvshows: @tvshows %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>自分専用テレビ番組表</h1>
+      <%= link_to '新規登録しましょう', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>

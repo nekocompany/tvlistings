@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  showtitle: MyString
+  user: one
+  show_length: 2018-03-17 05:15:42
+  dow: MyString
+  show_start_time: 2018-03-17 05:15:42
+
+two:
+  showtitle: MyString
+  user: two
+  show_length: 2018-03-17 05:15:42
+  dow: MyString
+  show_start_time: 2018-03-17 05:15:42
