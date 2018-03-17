@@ -1,24 +1,15 @@
-# README
+# 自分専用テレビ番組表
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これは、自分専用のテレビ番組を作成して、
+どの番組を見ているか、どれぐらいの時間テレビ番組を見ているか、
+把握するためのアプリケーションです
 
-Things you may want to cover:
+## ライセンス
 
-* Ruby version
+考え中
 
-* System dependencies
 
-* Configuration
+## 使い方
 
-* Database creation
+考え中
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
