@@ -17,6 +17,20 @@ class TvshowsController < ApplicationController
       render 'tvlistings/index'
     end
   end
+  
+  def update
+    @tvshow = Tvshow.find(params[:id])
+
+    if @tvshow.update(tvshow_params)
+      flash[:success] = '番組内容は正常に更新されました'
+      redirect_to root_url
+    else
+      flash.now[:danger] = '番組内容は更新されませんでした'
+      render 'tvlistings/index'
+    end
+  end
+  
+  
 
   def destroy
   end

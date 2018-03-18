@@ -6,9 +6,13 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
+      <%#  長いバージョン form_for(@tvshow, url: tvshows_path) %>
+      <%#  短いバージョン form_for(@tvshow) %>
       <%= form_for(@tvshow) do |f| %>
           <div class="form-group">
+            
             <%= f.label :name, '番組名' %>
+            
             <%= f.text_field :showtitle, class: 'form-control' %>
           </div>
 
