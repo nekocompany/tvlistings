@@ -7,8 +7,8 @@
       <div class="media-body">
         
         <div>
-          <p><%= link_to tvshow.showtitle, tvshow %></p>
-           <p><%= tvshow.id%></p>
+          <p>番組id:<%= tvshow.id%><%= link_to tvshow.showtitle, tvshow %></p>
+           
           <p><%= link_to '番組内容を更新', tvlistings_path(id: tvshow.id) %></p>
           
           
@@ -17,17 +17,17 @@
         
         <div>
           
-          <p><%= Time.at(tvshow.show_length).utc.strftime("%H:%M:%S") %></p>
+          <p>番組の長さ:<%= Time.at(tvshow.show_length).utc.strftime("%H:%M:%S") %></p>
         </div>
         
         <div>
-          <p><%= int_to_dow(tvshow.dow) %></p>
+          <p>放送曜日:<%= int_to_dow(tvshow.dow) %></p>
         </div>
         
         <div>
           
           
-          <p><%= Time.at(tvshow.show_start_time).utc.strftime("%H:%M")  %></p>
+          <p>番組開始時刻:<%= Time.at(tvshow.show_start_time).utc.strftime("%H:%M")  %></p>
         </div>
         
         
