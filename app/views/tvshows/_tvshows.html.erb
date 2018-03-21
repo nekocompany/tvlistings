@@ -1,5 +1,11 @@
 <ul class="media-list">
+  
+  
+  <% time_sum = 0 %>
+  
   <% tvshows.each do |tvshow| %>
+  
+  <% time_sum = time_sum + tvshow.show_length_int %>
     <li class="media">
       <div class="media-left">
        
@@ -16,8 +22,12 @@
         </div>
         
         <div>
-          
           <p>番組の長さ:<%= Time.at(tvshow.show_length).utc.strftime("%H:%M:%S") %></p>
+        </div>
+        
+        
+        <div>
+          <p>番組の長さ(秒):<%= tvshow.show_length_int %></p>
         </div>
         
         <div>
@@ -34,5 +44,7 @@
       </div>
     </li>
   <% end %>
+  
+  <h1>総視聴時間:<%= Time.at(time_sum).utc.strftime("%H:%M")  %></h1>
   <%= paginate tvshows %>
 </ul>
