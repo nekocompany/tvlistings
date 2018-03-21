@@ -18,9 +18,12 @@
 
           <div class="form-group">
             
-            <%= f.label :show_length, '番組の長さ' %>
+            <%= f.label :show_length, '番組の長さ(時間:分:秒)' %>
             <%= f.time_select :show_length, include_seconds: true, default: { hour: 0, minute: 0, second: 0 } %>
           </div>
+          
+          
+          
 
           <div class="form-group">
             <%= f.label :dow, '曜日' %>
@@ -28,8 +31,8 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :show_start_time, '番組の開始時間' %>
-            <%= f.time_select :show_start_time, include_seconds: true, default: { hour: 0, minute: 0, second: 0 } %>
+            <%= f.label :show_start_time, '番組の開始時間(時:分)' %>
+            <%= f.time_select :show_start_time,  default: { hour: 0, minute: 0, second: 0 } %>
           </div>
           
           <div class="text-right">

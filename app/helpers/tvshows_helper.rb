@@ -7,4 +7,16 @@ module TvshowsHelper
     
   end
   
+  def show_length_to_int(show_length)
+    
+    show_length_int = 
+    (show_length.time.hour * 3600) + 
+    (how_length.time.min * 60) + 
+    show_length.time.sec
+    
+    
+  end
+  
+  
+  
 end
