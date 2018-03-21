@@ -27,8 +27,11 @@
 
           <div class="form-group">
             <%= f.label :dow, '曜日' %>
-            <%= f.number_field :dow, class: 'form-control' %>
+            <%= f.select :dow, [["月", "0"], ["火", "1"], ["水", "2"], ["木", "3"], ["金", "4"], ["土", "5"], ["日", "6"]] ,class:"form-control" %>
+            
           </div>
+          
+          
 
           <div class="form-group">
             <%= f.label :show_start_time, '番組の開始時間(時:分)' %>
