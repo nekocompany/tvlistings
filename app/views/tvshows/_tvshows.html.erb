@@ -35,9 +35,13 @@
         </div>
         
         <div>
-          
-          
           <p>番組開始時刻:<%= Time.at(tvshow.show_start_time).utc.strftime("%H:%M")  %></p>
+        </div>
+        
+        <div>
+          <p>
+          <%= link_to '番組を削除', tvshow, method: :delete, data: { confirm: '本当に番組を削除しますか？' } %>
+          </p>
         </div>
         
         
