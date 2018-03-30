@@ -5,6 +5,7 @@ class TvshowsController < ApplicationController
   def show
     @tvshow = Tvshow.find(params[:id])
     # @tvshow_build = current_user.tvshows.build(tvshow_params)
+    
   end
   
   def create
@@ -12,27 +13,38 @@ class TvshowsController < ApplicationController
     
     
     
-    
-    
-    
-    
-    
     if @tvshow.save
       flash[:success] = '番組を作成しました。'
-      redirect_to root_url
+      
+      # tvlisting/5から作成したのなら
+      # tvlisting/5に戻りたい
+      # メッセージボードの場合
+      # @message = Message.find(params[:id])
+      # redirect_to @message
+      
+      redirect_to controller: 'tvlistings', action: 'show', id: @tvshow.tvlisting_id
     else
       @tvshows = current_user.tvshows.order('created_at DESC').page(params[:page])
+      #@tvlisting = Tvlisting.find(params[:id])
+      @tvlisting = Tvlisting.find(@tvshow.tvlisting_id)
       flash.now[:danger] = '番組の作成に失敗しました。'
-      render 'tvlistings/index'
+      
+      
+      
+      
+      # 'tvlistings/3'ではrender出来ない
+      # render :template => "posts/show", :locals => {:post => @post}
+      # 番組表id:<%= @tvlisting.id %> @tvlistingを渡さねばならない
+      # エラーのところ難しいので保留
+      
+      render :action => '../tvlistings/show', :id => @tvshow.id 
+      
+      
     end
   end
   
   def update
     @tvshow = Tvshow.find(params[:id])
-    
-    
-    
-    
     
    
     if @tvshow.update(tvshow_params)
@@ -59,7 +71,7 @@ class TvshowsController < ApplicationController
   private
 
   def tvshow_params
-    params.require(:tvshow).permit(:showtitle, :show_length, :show_length_int, :dow, :show_start_time)
+    params.require(:tvshow).permit(:showtitle, :show_length, :show_length_int, :dow, :show_start_time, :tvshow_id, :tvlisting_id)
   end
   
   

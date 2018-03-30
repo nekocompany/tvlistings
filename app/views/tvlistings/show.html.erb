@@ -1,2 +1,71 @@
-<h1>Tvlistings#show</h1>
-<p>Find me in app/views/tvlistings/show.html.erb</p>
+
+
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <%#  長いバージョン form_for(@tvshow, url: tvshows_path) %>
+      <%#  短いバージョン form_for(@tvshow) %>
+      <%= form_for(@tvshow) do |f| %>
+          <div class="form-group">
+            
+            
+            <%#  tvliting.idを渡したい　@tvlisting.id  %>
+            
+            
+            
+            <%# idを渡す　エラー出し用にコメントアウト　後でコメントアウトを外す  %>
+            <%= f.hidden_field :tvlisting_id, :value => @tvlisting.id %>
+            
+            
+            <%= f.label :name, '番組名' %>
+            
+            <%= f.text_field :showtitle, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            
+            <%= f.label :show_length, '番組の長さ(時間:分:秒)' %>
+            <%= f.time_select :show_length, include_seconds: true, default: { hour: 0, minute: 0, second: 0 } %>
+          </div>
+          
+          
+          
+
+          <div class="form-group">
+            <%= f.label :dow, '曜日' %>
+            <%= f.select :dow, [["月", "0"], ["火", "1"], ["水", "2"], ["木", "3"], ["金", "4"], ["土", "5"], ["日", "6"]] ,class:"form-control" %>
+            
+          </div>
+          
+          
+
+          <div class="form-group">
+            <%= f.label :show_start_time, '番組の開始時間(時:分)' %>
+            <%= f.time_select :show_start_time,  default: { hour: 0, minute: 0, second: 0 } %>
+          </div>
+          
+          <div class="text-right">
+            <%= f.submit '登録する', class: 'btn btn-success' %>
+          </div>
+      <% end %>
+      
+      
+   
+      
+      
+    </aside>
+    <div class="col-xs-8">
+      <h1>番組表id:<%= @tvlisting.id %></h1>
+      <h1>番組表名:<%= @tvlisting.title %></h1>
+      <%= render 'tvshows/tvshows', tvshows: @tvshows %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>自分専用テレビ番組表</h1>
+      <%= link_to '新規登録しましょう', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>

@@ -4,7 +4,15 @@ class Tvshow < ApplicationRecord
   
   belongs_to :user
   
+  # optional: trueでtvlisting_idが無くても良いことになる
+  # belongs_to :tvlisting, optional: true 
+  
+  belongs_to :tvlisting
+  
   validates :user_id, presence: true
+  validates :tvlisting_id, presence: true
+  
+  
   validates :showtitle, presence: true, length: { maximum: 255 }
   
   private
